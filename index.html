@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <a href="index.html"><img src="assests/logo.svg" alt=""></a>
+            <a href="index.html"><h1>Moody</h1></a>
+        </div>
+        <div class="menu-icon">☰</div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#moodss">Mood</a></li>
+                <li><a href="#footers">Contact</a></li>
+                <button id="login">Login</button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="starts">
+            <div class="video">
+                <img src="assests/front.gif" width="370"></img>
+            </div>
+            <div class="quotes">
+                <h2 class="quote">Know Your Mood with Moody. Have a nice day!!</h2>
+                <p class="para">"Your mood is like a mirror, it reflects how you feel inside. Take care of your
+                    thoughts,
+                    and your mood will follow."</p>
+                <div class="start"><button onclick="startTracking()">Get Started</button></div>
+
+                <img src="assests/chabot_prev_ui.png" alt="Chatbot" class="chatbot-icon" onclick="toggleChat()" width="130">
+                <div class="chat-container" id="chatContainer">
+                    <img src="assests/cross.svg" alt="" width="23" onclick="remove()">
+                    <div class="chat-box" id="chatBox">
+                        <p id="chatbot"><strong>Your Buddy:</strong> Hello! How can I assist you?</p>
+                    </div>
+                    <input type="text" id="userInput" placeholder="Type a message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="about">
+            <h2>About Us</h2>
+            <p>Welcome to our Mood Tracking System, a platform designed to help you understand and manage your emotions
+                effectively. Our system allows users to log their daily moods, identify patterns, and gain insights into
+                their emotional well-being over time. By using data-driven analytics and personalized recommendations,
+                we empower individuals to track their mental health, recognize triggers, and make informed lifestyle
+                changes. Whether you're looking to improve productivity, manage stress, or simply gain better
+                self-awareness, our intuitive and user-friendly interface makes mood tracking effortless. Join us in
+                taking a step towards a healthier mind and a balanced life.</p>
+        </div>
+        <h2 class="h-2">How's Your Mood</h2>
+        <div class="moods" id="moodss">
+            <div class="mood">
+                <img src="assests/happy.svg" alt="Happy">
+                <button onclick="submitMood('happy')">Happy</button>
+            </div>
+            <div class="mood">
+                <img src="assests/chill.svg" alt="Neutral">
+                <button onclick="submitMood('neutral')">Neutral</button>
+            </div>
+            <div class="mood">
+                <img src="assests/angry.svg" alt="Angry">
+                <button onclick="submitMood('angry')">Angry</button>
+            </div>
+            <div class="mood">
+                <img src="assests/sad.svg" alt="Sad">
+                <button onclick="submitMood('sad')">Sad</button>
+            </div>
+        </div>
+        <h2 class="h-3">Reason Of Your Mood</h2>
+        <div id="input-ff">
+            <input type="text" id="input" placeholder="Why are you feeling this way?" required>
+        </div>
+
+        <h2 class="h-4">Past History</h2>
+        <div id="history">
+            <canvas id="moodChart" width="800" height="200"></canvas>
+        </div>
+
+
+    </main>
+
+    <footer class="footer" id="footers">
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Mood</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <!-- Facebook -->
+            <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.92v-7.02H7.9v-2.9h2.54v-2.2c0-2.5 1.49-3.9 3.77-3.9 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.55v1.88h2.78l-.44 2.9h-2.34v7.02c4.78-.79 8.44-4.93 8.44-9.92z" />
+                </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 3a5 5 0 110 10 5 5 0 010-10zm7.5 1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 8h4v12H3V8zm7 0h4v1.8h.06c.56-1.06 1.93-2.18 3.94-2.18 4.22 0 5 2.77 5 6.37V20h-4v-5.72c0-1.36-.03-3.1-2-3.1-2 0-2.3 1.5-2.3 3V20h-4V8z" />
+                </svg>
+            </a>
+        </div>
+        <div class="email-section">
+            <p>Subscribe to our newsletter</p>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
