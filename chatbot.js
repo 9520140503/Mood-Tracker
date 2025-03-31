@@ -106,3 +106,4 @@ function getMoodSuggestion(userMessage) {
     return "I'm not sure about that mood 🤔, but how about trying a nice walk outside? 🌳 It might help! 🚶";
     
 }
+
